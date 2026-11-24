@@ -24,6 +24,7 @@
     />
     <script src="../../js/color-modes.js"></script>
     <link href="../../css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <meta name="theme-color" content="#712cf9" />
     <link href="../../css/dashboard.css" rel="stylesheet" />
     <style>
@@ -368,6 +369,10 @@
             class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
           >
             <h1 class="h2">Gerenciamento de Categoria</h1>
+
+          <p>
+            <a href="create.php">Nova Categoria</a>
+          </p>
             
           </div>
           
@@ -375,13 +380,20 @@
             <table class="table table-hover">
                 <tr>
                     <th>ID</th>
-                    <th>Categoria</th>
+                    <th>Descrição</th>
                 </tr>
                 <?php foreach($dao->read() as $categoria) : ?>
                     <tr>
                         <td><?= $categoria->getId() ?></td>
                         <td><?= $categoria->getDescricao() ?></td>
-                        
+                        <td>
+                          <a title="Editar" href="edit.php?id=<?= $categoria->getId() ?>">
+                            <i class="bi bi-pencil"></i>
+                          </a>
+                          <a title="Excluir" class="link-danger" href="destroy.php?id=<?= $categoria->getId() ?>">
+                            <i class="bi bi-trash3"></i>
+                          </a>
+                        </td>
                     </tr>
                 <?php endforeach ?>
             </table>

@@ -8,7 +8,8 @@
 
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
-  <head>
+  <head> 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="" />
@@ -24,6 +25,7 @@
     />
     <script src="../../js/color-modes.js"></script>
     <link href="../../css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <meta name="theme-color" content="#712cf9" />
     <link href="../../css/dashboard.css" rel="stylesheet" />
     <style>
@@ -392,6 +394,15 @@
                         <td><?= $usuario->getTelefone() ?></td>
                         <td><?= $usuario->getSenha() ?></td>
                         <td><?= $usuario->getEmprestimo() ?></td>
+                        <td>
+                            <a title="Editar" href="edit.php?id=<?= $usuario->getId() ?>">
+                              <i class="bi bi-pencil-fill"></i>
+                            </a>
+                            <a  title="Excluir" class="link-danger" href="destroy.php?id=<?= $usuario->getId() ?>">
+                              <i class="bi bi-trash3-fill"></i>
+                            </a>
+                        </td>
+                      </tr>
                     </tr>
                 <?php endforeach ?>
             </table>
